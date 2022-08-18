@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inkoop Assignment</title>
+</head>
+
+<body style="background-image: linear-gradient(to right,rgb(149, 53, 218),rgb(108, 108, 219));">
+    <div style="position: absolute; top: 40%; left:40%;">
+        <!-- Input box -->
+        <input type="number" placeholder="Enter a number" id='input' onchange="change(this.value)" />
+        <!-- Result box -->
+        <div id="result" style="color: white;font-size:larger; "></div>
+    </div>
+    <script>
+        function change(val) {
+            let result = '';
+            // Get the result box
+            let resultElement = document.getElementById('result')
+            // check if number is negative 
+            if (val < 0) {
+                result = 'Enter a positive value.'
+            } else if (val & 1 == 1) { // check if number is odd
+                // set counter to count the next odd number
+                let count = 0;
+                val++;
+                while (count < 3) {//itertate till 3 odd number found 
+                    val % 2 != 0 ? (result += val + ' ', count++) : null;
+                    val++;
+
+                }
+            } else {
+                // set counter to count the next odd number
+                let count = 0;
+                val++;
+                while (count < 3) {//itertate till 3 even number found 
+                    val % 2 == 0 ? (result += val + ' ', count++) : null;
+                    val++;
+
+                }
+            }
+            // set the result 
+            resultElement.innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>
